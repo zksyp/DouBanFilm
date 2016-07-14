@@ -5,12 +5,12 @@ package com.tekinarslan.material.sample.Info;
  */
 public class CelebrityEntity {
 
-    private ImageInfo avatars;
+    private ImagesEntity avatars;
     private String alt;
     private String id;
     private String name;
 
-    public void setAvatars(ImageInfo avatars) {
+    public void setAvatars(ImagesEntity avatars) {
         this.avatars = avatars;
     }
 
@@ -26,7 +26,7 @@ public class CelebrityEntity {
         this.name = name;
     }
 
-    public ImageInfo getAvatars() {
+    public ImagesEntity getAvatars() {
         return avatars;
     }
 

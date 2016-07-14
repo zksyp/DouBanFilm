@@ -2,20 +2,17 @@ package com.tekinarslan.material.sample;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.webkit.WebChromeClient;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
-
-import junit.framework.Test;
 
 /**
  * Created by kaishen on 16/6/15.
@@ -68,10 +65,21 @@ public class MovieWebActivity extends AppCompatActivity{
 
     public void initData() {
         Intent intent = getIntent();
-        mUrl = intent.getStringExtra("LoadUrl");
+        mUrl = intent.getStringExtra("URL");
         Log.e("get",mUrl);
         setSupportActionBar(mToolbar);
         //mToolbar.setNavigationIcon(R.drawable.ic_ab_drawer);
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null)
+        {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.loadUrl(mUrl);
 
@@ -87,9 +95,7 @@ public class MovieWebActivity extends AppCompatActivity{
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK) && !(mWebView.canGoBack())) {
-            Intent intent = new Intent();
-            intent.setClass(this,SampleActivity.class);
-            startActivity(intent);
+            this.finish();
             return true;
         }
         if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {

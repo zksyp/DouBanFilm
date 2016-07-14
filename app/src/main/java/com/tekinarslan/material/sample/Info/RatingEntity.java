@@ -3,7 +3,7 @@ package com.tekinarslan.material.sample.Info;
 /**
  * Created by kaishen on 16/6/14.
  */
-public class RatingInfo {
+public class RatingEntity {
 
     private int max;
     private float average;

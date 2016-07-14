@@ -1,4 +1,4 @@
-package com.tekinarslan.material.sample.Adapter;
+package com.tekinarslan.material.sample;
 
 /**
  * Created by kaishen on 16/6/14.

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="white">#ffffff</color>
     <color name="red">#bf360c</color>
     <color name="ripple_red">#ffbf5232</color>
+    <color name="gray">#6a6a6a</color>
+    <color name="black">#000000</color>
 
     <color name="material_teal">@color/material_deep_teal_500</color>
     <color name="ripple_material_teal">#ff149691</color>
@@ -15,6 +18,12 @@
 
     <color name="windowBackgroundColor">#333333</color>
     <color name="black_translucent">#80000000</color>
+
+    <color name="golden">#d9d919</color>
+    <color name="silver">#e5e5e5</color>
+    <color name="brassiness">#b5a642</color>
+    <color name="search_view_hint_color">#e3f2fd</color>
+    <color name="background_gray">#44000000</color>
     
     <color name="BackGreen">#ff009688</color>
 

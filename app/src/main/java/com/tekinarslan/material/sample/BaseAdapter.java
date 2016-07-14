@@ -1,13 +1,8 @@
-package com.tekinarslan.material.sample.Adapter;
+package com.tekinarslan.material.sample;
 
-import android.animation.Animator;
-import android.animation.AnimatorInflater;
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.tekinarslan.material.sample.R;
 
 /**
  * Created by kaishen on 16/6/14.

@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.tekinarslan.material.sample.fragment.ListChangeFragment;
+
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     final int PAGE_COUNT =4;
@@ -23,7 +25,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case 1:
                 return ListChangeFragment.newInstance(position);
             case 2:
-                return ListBoxFragment.newInstance(position);
+                return ListChangeFragment.newInstance(position);
             case 3:
                 return ListChangeFragment.newInstance(position);
 //            case 4:

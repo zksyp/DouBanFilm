@@ -1,14 +1,11 @@
-package com.tekinarslan.material.sample;
+package com.tekinarslan.material.sample.fragment;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Movie;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.ListFragment;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,18 +17,22 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.google.gson.Gson;
-import com.tekinarslan.material.sample.Adapter.BaseAdapter;
-import com.tekinarslan.material.sample.Info.MovieInfo;
+import com.tekinarslan.material.sample.Info.MovieBean;
+import com.tekinarslan.material.sample.R;
+import com.tekinarslan.material.sample.MovieWebActivity;
+import com.tekinarslan.material.sample.SubjectActivity;
+import com.tekinarslan.material.sample.bean.GetNetBean;
+import com.tekinarslan.material.sample.util.CelebrityUtil;
+import com.tekinarslan.material.sample.util.StringUtil;
 
 import java.util.List;
 
 /**
  * Created by kaishen on 16/6/14.
  */
-class GeneralAdapter extends RecyclerView.Adapter<GeneralAdapter.ItemViewHolder>{
+public class GeneralAdapter extends RecyclerView.Adapter<GeneralAdapter.ItemViewHolder>{
 
-    private List<MovieInfo> mMovieList;
+    private List<MovieBean> mMovieList;
     private LayoutInflater mInflater;
     private Context mContext;
 
@@ -41,26 +42,8 @@ class GeneralAdapter extends RecyclerView.Adapter<GeneralAdapter.ItemViewHolder>
      */
     private boolean mIsComingFilm;
     private int totalDataCount = 0;
-    private GetNetInfo mGet = new GetNetInfo();
-    private MovieInfo mMovieInfo;
-    private String mLoadUrl;
-    private Handler mHandler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            mMovieInfo = (MovieInfo) msg.obj;
-            mLoadUrl = mMovieInfo.getMobile_url();
-            Intent intent = new Intent();
-            intent.putExtra("LoadUrl",mLoadUrl);
-            Log.e("set",mLoadUrl);
-//            intent.putExtra("LoadUrl","https://movie.douban.com/subject/1764796/mobile");
-            intent.setClass(mContext, MovieWebActivity.class);
-            mContext.startActivity(intent);
-        }
-    };
 
-
-    public GeneralAdapter(Context context, List<MovieInfo> movieList, boolean isComingFilm) {
+    public GeneralAdapter(Context context, List<MovieBean> movieList, boolean isComingFilm) {
         mContext = context;
         mMovieList = movieList;
         mInflater = LayoutInflater.from(context);
@@ -78,10 +61,6 @@ class GeneralAdapter extends RecyclerView.Adapter<GeneralAdapter.ItemViewHolder>
     public void onBindViewHolder(GeneralAdapter.ItemViewHolder holder, int position) {
 
         holder.update(holder, position);
-
-//        holder.mTitle.setText(mMovieList.get(position).getTitle());
-//        int mStar = Integer.parseInt(mMovieList.get(position).getRating().getStars())/10;
-//        holder.mRating.setText(""+mStar+"星");
     }
 
     @Override
@@ -126,9 +105,10 @@ class GeneralAdapter extends RecyclerView.Adapter<GeneralAdapter.ItemViewHolder>
 
         @Override
         public void onClick(View v) {
-            mGet.setmHandler(mHandler);
-            mGet.setUrl("https://api.douban.com/v2/movie/subject/" + mMovieList.get(getLayoutPosition()).getId());
-            mGet.GetNetInfo(false);
+            Intent intent = new Intent();
+            intent.putExtra("ID", mMovieList.get(getLayoutPosition()).getId());
+            intent.setClass(mContext, SubjectActivity.class);
+            mContext.startActivity(intent);
         }
 
 
@@ -136,11 +116,11 @@ class GeneralAdapter extends RecyclerView.Adapter<GeneralAdapter.ItemViewHolder>
 
             if(!mIsComingFilm){
                 mRatingLayout.setVisibility(View.VISIBLE);
-                float rate = (float) mMovieList.get(position).getRating().getAverage();
+                float rate = mMovieList.get(position).getRating().getAverage();
                 mRatingBar.setRating(rate / 2);
                 mRating.setText(String.format("%s", rate));
                 mCount.setText("(");
-                mCount.append(String.format("%d", mMovieList.get(position).getCount()));
+                mCount.append(String.format("%d", mMovieList.get(position).getCollect_count()));
                 mCount.append("人评价)");
             }
             String title = mMovieList.get(position).getTitle();

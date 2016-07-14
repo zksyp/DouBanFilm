@@ -5,10 +5,10 @@ import java.util.List;
 /**
  * Created by kaishen on 16/6/14.
  */
-public class BoxInfo {
+public class BoxBean {
 
     private String date;
-    private List<RankInfo> subjects;
+    private List<RankBean> subjects;
     private String title;
     public String getDate() {
         return date;
@@ -18,12 +18,12 @@ public class BoxInfo {
         this.date = date;
     }
 
-    public List<RankInfo> getSubjects() {
+    public List<RankBean> getSubjects() {
         return subjects;
     }
 
-    public void setSubjects(List<RankInfo> rankInfos) {
-        this.subjects = rankInfos;
+    public void setSubjects(List<RankBean> rankBeen) {
+        this.subjects = rankBeen;
     }
 
     public String getTitle() {

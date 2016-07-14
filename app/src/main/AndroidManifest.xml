@@ -8,7 +8,8 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:supportsRtl="true">
         <activity
             android:name=".SampleActivity"
             android:label="@string/app_name">
@@ -19,6 +20,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".MovieWebActivity" ></activity>
+        <activity android:name=".CollectionActivtiy"></activity>
+        <activity android:name=".OptionActivity"></activity>
+        <activity android:name=".EditActivity"></activity>
+        <activity android:name=".SubjectActivity"></activity>
     </application>
 
 </manifest>

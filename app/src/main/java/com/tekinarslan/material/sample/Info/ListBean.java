@@ -5,10 +5,10 @@ import java.util.List;
 /**
  * Created by kaishen on 16/6/14.
  */
-public class ListInfo {
+public class ListBean {
 
     private int total;
-    private List<MovieInfo> subjects;
+    private List<MovieBean> subjects;
 
     public int getTotal() {
         return this.total;
@@ -18,11 +18,11 @@ public class ListInfo {
         this.total = mTotal;
     }
 
-    public List<MovieInfo> getSubjects() {
+    public List<MovieBean> getSubjects() {
         return this.subjects;
     }
 
-    public void setSubjects(List<MovieInfo> mSubjects) {
+    public void setSubjects(List<MovieBean> mSubjects) {
         this.subjects = mSubjects;
     }
 }

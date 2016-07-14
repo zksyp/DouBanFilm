@@ -52,11 +52,13 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
     @Override
     public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
-        if(mOrientation == LinearLayoutManager.VERTICAL){
-            drawVertical(c,parent) ;
-        }else {
-            drawHorizontal(c,parent) ;
-        }
+//        if(mOrientation == LinearLayoutManager.VERTICAL){
+//            drawVertical(c,parent) ;
+//        }else {
+//            drawHorizontal(c,parent) ;
+//        }
+        drawHorizontal(c, parent);
+        drawVertical(c, parent);
     }
 
     /**
@@ -107,7 +109,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         if(mOrientation == LinearLayoutManager.VERTICAL){
             outRect.set(0,0,0,mItemSize);
         }else {
-            outRect.set(0,0,mItemSize,0);
+            outRect.set(0,0,1,0);
         }
     }
 }

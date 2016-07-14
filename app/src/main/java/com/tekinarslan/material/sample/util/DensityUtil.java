@@ -1,4 +1,4 @@
-package com.tekinarslan.material.sample;
+package com.tekinarslan.material.sample.util;
 
 import android.content.Context;
 

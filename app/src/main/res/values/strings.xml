@@ -5,4 +5,9 @@
     <string name="drawer_open">drawer_open</string>
     <string name="drawer_close">drawer_close</string>
     <string name="title_activity_main">MainActivity</string>
+    
+    <string name="in_theaters">正在热映</string>
+    <string name="coming_soon">即将上映</string>
+
+    <string name="douban_rating">评分</string>
 </resources>

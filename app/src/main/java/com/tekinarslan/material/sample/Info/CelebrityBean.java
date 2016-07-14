@@ -5,13 +5,13 @@ import java.util.List;
 /**
  * Created by kaishen on 16/6/14.
  */
-public class CelebrityInfo {
+public class CelebrityBean {
 
     private String mobile_url;//条目移动版url
     private String name;//中文名
     private String name_en;//英文名
     private String gender;//性别
-    private ImageInfo avatars;//影人头像
+    private ImagesEntity avatars;//影人头像
     private String alt;//条目页url
     private String born_place;//出生地
     private String id;//条目id
@@ -35,7 +35,7 @@ public class CelebrityInfo {
         this.gender = gender;
     }
 
-    public void setAvatars(ImageInfo avatars) {
+    public void setAvatars(ImagesEntity avatars) {
         this.avatars = avatars;
     }
 
@@ -79,7 +79,7 @@ public class CelebrityInfo {
         return gender;
     }
 
-    public ImageInfo getAvatars() {
+    public ImagesEntity getAvatars() {
         return avatars;
     }
 
